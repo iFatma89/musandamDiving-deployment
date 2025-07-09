@@ -11,7 +11,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Import solution to Production
-        uses: microsoft/powerplatform-actions/import-solution@v0
+        uses: microsoft/powerplatform-actions/import-solution@v0.6.1
+
         with:
           environment-url: ${{ secrets.PROD_ENVIRONMENT_URL }}
           app-id: ${{ secrets.CLIENT_ID }}
