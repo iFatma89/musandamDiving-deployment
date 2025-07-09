@@ -1,0 +1,20 @@
+name: Deploy Power Pages Solution to Production
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-solution:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Import solution to Production
+        uses: microsoft/powerplatform-actions/import-solution@v0
+        with:
+          environment-url: ${{ secrets.PROD_ENVIRONMENT_URL }}
+          app-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          solution-file: solutions/PowerPagesSiteSolution/MusandamDivingSolution.zip
